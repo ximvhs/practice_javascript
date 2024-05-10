@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Css -->
+    <style>
+      .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      span {
+        color: red;
+      }
+      button {
+        cursor: pointer;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        background-color: coral;
+        transition: all 0.2s linear;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+
+  <!-- HTML -->
+  <body>
+    <div class="container">
+      <h1>Hello! <span> Everyone </span></h1>
+      <button>Name</button>
+    </div>
+  </body>
+
+  <!-- JavaScipt -->
+  <script>
+    const btnElement = document.querySelector("button");
+    const spanElement = document.querySelector("span");
+    btnElement.addEventListener("click", () => {
+      const yourName = prompt("Please enter your name:");
+      spanElement.textContent = yourName;
+    });
+  </script>
+</html>

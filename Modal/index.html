@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- css -->
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        height: 100%;
+        width: 100%;
+      }
+      .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        padding: 20px 30px;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(219, 141, 40);
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        transition: all 0.3s linear;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+      .modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .modal_over {
+        position: absolute;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal_container {
+        width: 500px;
+        height: 300px;
+        padding: 50px;
+        background-color: beige;
+        border-radius: 22px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: show 0.5s linear;
+        position: relative;
+      }
+      .icon {
+        height: 30px;
+        padding: 10px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        transition: all 0.3s linear;
+        border-radius: 10px;
+      }
+
+      .icon:hover {
+        background: #cccccc55;
+      }
+      @keyframes show {
+        from {
+          transform: translateY(-300px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <!-- html -->
+  <body>
+    <div class="container">
+      <button>Open modal</button>
+      <div class="modal">
+        <div class="modal_over"></div>
+        <div class="modal_container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+
+          <h1>Hello</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
+            quisquam animi totam eius et beatae, aperiam iusto minima unde
+            tenetur? Excepturi, doloribus. Mollitia repudiandae nobis iusto
+            eveniet, quod aspernatur amet.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!-- javaScript -->
+
+  <script>
+    const btnElement = document.querySelector("button");
+    const modalElement = document.querySelector(".modal");
+    const iconElement = document.querySelector(".icon");
+    const overElement = document.querySelector(".modal_over");
+
+    btnElement.addEventListener("click", () => {
+      modalElement.classList.add("open");
+    });
+    iconElement.addEventListener("click", () => {
+      modalElement.classList.remove("open");
+    });
+    overElement.addEventListener("click", () => {
+      modalElement.classList.remove("open");
+    });
+  </script>
+</html>
